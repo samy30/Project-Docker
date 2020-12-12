@@ -17,7 +17,7 @@ where **myservice** can be changed by the name you wish for the service
   
 that's all you need to run the api and listen at **hostname:8080/products**  
   
-(if running at localhost you can copy directly:   **localhost:8080/products**)  
+(if running at localhost you can copy directly:   **127.0.0.1:8080/products**)  
   
 possible operations:  
   

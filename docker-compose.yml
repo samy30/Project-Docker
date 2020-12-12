@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+    database:
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'golangtest'
+            MYSQL_ROOT_PASSWORD: 'root'
+        ports:
+            - "3306:3306"
+        volumes:
+            - webapp3:/var/lib/mysql
+        deploy:
+            mode: replicated
+            replicas: 2
+            placement:
+                max_replicas_per_node: 1
+            update_config:
+                parallelism: 2
+                delay: 10s
+    backend:
+        image: "samy30/web-app-server:latest"
+        deploy:
+            mode: replicated
+            replicas: 3
+            placement:
+                max_replicas_per_node: 2
+            update_config:
+                parallelism: 2
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+        ports:
+            - "8080:8000"
+volumes:
+    webapp3:
+

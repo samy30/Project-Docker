@@ -1,6 +1,6 @@
 # Project-Docker  
 
-this is a simple rest api developed with golang with a mysql database and shipped in docker dontainers.  
+this is a simple rest api developed with golang with a mysql database and shipped in docker containers.  
   
 To run the project you need access to an environment in which are installed **Docker** && **Docker composer**  
   
